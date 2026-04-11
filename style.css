@@ -13,8 +13,8 @@
   --fg: #e8e8e8;
   --fg-dim: #888;
   --accent: #fff;
-  --font-sketch: 'Caveat', 'Nanum Pen Script', cursive;
-  --font-body: 'Caveat', cursive;
+  --font-heading: 'IBM Plex Mono', monospace;
+  --font-body: 'Noto Sans KR', -apple-system, sans-serif;
   --border: rgba(255, 255, 255, 0.15);
 }
 
@@ -26,8 +26,9 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
-  font-size: 20px;
-  line-height: 1.7;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
@@ -85,16 +86,17 @@ body {
   padding: 1.2rem 2.5rem;
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(12px);
-  border-bottom: 1px dashed var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .logo {
-  font-family: var(--font-sketch);
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 500;
   color: var(--accent);
   cursor: pointer;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .logo-bracket {
@@ -108,10 +110,13 @@ body {
 }
 
 .nav-link {
-  font-family: var(--font-sketch);
-  font-size: 1.3rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 400;
   color: var(--fg-dim);
   text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: lowercase;
   position: relative;
   transition: color 0.3s;
 }
@@ -122,9 +127,8 @@ body {
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: white;
-  border-radius: 2px;
   transition: width 0.3s;
 }
 
@@ -169,11 +173,12 @@ body {
 }
 
 .hero-title {
-  font-family: var(--font-sketch);
-  font-size: 3.5rem;
+  font-family: var(--font-body);
+  font-size: 2.4rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.5;
   color: var(--accent);
+  letter-spacing: -0.5px;
 }
 
 .scrawl {
@@ -189,33 +194,35 @@ body {
 @keyframes scrawlIn {
   from {
     opacity: 0;
-    transform: translateY(20px) rotate(-1deg);
-    filter: blur(2px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) rotate(0);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
 .hero-sub {
-  margin-top: 1.5rem;
-  font-size: 1.3rem;
+  margin-top: 1.2rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 300;
   color: var(--fg-dim);
-  font-style: italic;
+  letter-spacing: 1px;
 }
 
 .btn-sketch {
   display: inline-block;
   margin-top: 2.5rem;
-  padding: 0.8rem 2rem;
-  font-family: var(--font-sketch);
-  font-size: 1.3rem;
+  padding: 0.6rem 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--accent);
   text-decoration: none;
-  border: 2px dashed rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
   transition: all 0.3s;
   position: relative;
 }
@@ -223,17 +230,18 @@ body {
 .btn-sketch:hover {
   border-color: white;
   background: rgba(255, 255, 255, 0.05);
-  transform: rotate(-1deg) scale(1.03);
 }
 
 /* ── 섹션 제목 ── */
 .section-title {
-  font-family: var(--font-sketch);
-  font-size: 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--fg-dim);
   text-align: center;
   margin-bottom: 2.5rem;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
 }
 
 /* ── 포스트 그리드 (Home) ── */
@@ -245,9 +253,9 @@ body {
 
 /* ── 포스트 카드 ── */
 .post-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px dashed var(--border);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 2px;
   padding: 2rem;
   cursor: pointer;
   transition: all 0.3s;
@@ -269,8 +277,8 @@ body {
 
 .post-card:hover {
   border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-4px) rotate(-0.5deg);
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .post-card:hover::before {
@@ -279,32 +287,37 @@ body {
 
 .post-card .tag {
   display: inline-block;
-  font-size: 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
   color: var(--fg-dim);
   border: 1px solid var(--border);
-  padding: 0.15rem 0.6rem;
-  border-radius: 20px;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
   margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
 }
 
 .post-card h3 {
-  font-family: var(--font-sketch);
-  font-size: 1.6rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
   color: var(--accent);
   margin-bottom: 0.6rem;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .post-card p {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--fg-dim);
-  line-height: 1.5;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 .post-card .date {
   display: block;
   margin-top: 1rem;
-  font-size: 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.25);
 }
 
@@ -320,10 +333,9 @@ body {
   align-items: baseline;
   gap: 1.5rem;
   padding: 1.2rem 1.5rem;
-  border-bottom: 1px dashed var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   cursor: pointer;
   transition: all 0.3s;
-  border-radius: 8px;
 }
 
 .post-list-item:hover {
@@ -332,25 +344,28 @@ body {
 }
 
 .post-list-item .list-date {
-  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.25);
   white-space: nowrap;
   min-width: 90px;
 }
 
 .post-list-item .list-title {
-  font-family: var(--font-sketch);
-  font-size: 1.4rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
   color: var(--fg);
   flex: 1;
 }
 
 .post-list-item .list-tag {
-  font-size: 0.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
   color: var(--fg-dim);
   border: 1px solid var(--border);
   padding: 0.1rem 0.5rem;
-  border-radius: 12px;
+  border-radius: 2px;
   white-space: nowrap;
 }
 
@@ -360,25 +375,29 @@ body {
 }
 
 .post-detail h1 {
-  font-family: var(--font-sketch);
-  font-size: 2.8rem;
+  font-family: var(--font-body);
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--accent);
-  line-height: 1.2;
+  line-height: 1.4;
   margin-bottom: 0.5rem;
 }
 
 .post-detail .meta {
-  font-size: 0.95rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
   color: var(--fg-dim);
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px dashed var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.5px;
 }
 
 .post-detail .body {
-  font-size: 1.2rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 2;
   color: var(--fg);
+  font-weight: 300;
 }
 
 .post-detail .body p {
@@ -386,28 +405,31 @@ body {
 }
 
 .post-detail .body h2 {
-  font-family: var(--font-sketch);
-  font-size: 1.8rem;
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
   color: var(--accent);
   margin: 2.5rem 0 1rem;
 }
 
 .post-detail .body code {
-  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-heading);
+  background: rgba(255, 255, 255, 0.06);
   padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.95rem;
+  border-radius: 2px;
+  font-size: 0.85rem;
 }
 
 .post-detail .body pre {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px dashed var(--border);
-  border-radius: 12px;
+  font-family: var(--font-heading);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
   padding: 1.5rem;
   overflow-x: auto;
   margin: 1.5rem 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  line-height: 1.8;
 }
 
 .back-btn {
@@ -424,7 +446,7 @@ body {
   width: 120px;
   height: 120px;
   margin: 0 auto 2rem;
-  border: 2px dashed var(--border);
+  border: 1px solid var(--border);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -438,18 +460,22 @@ body {
 }
 
 .about-name {
-  font-family: var(--font-sketch);
-  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 500;
   color: var(--accent);
   margin-bottom: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .about-bio {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 300;
   color: var(--fg-dim);
   max-width: 400px;
   margin: 0 auto 2rem;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .about-links {
@@ -462,16 +488,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: 1px dashed var(--border);
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
   border-radius: 50%;
   transition: all 0.3s;
 }
 
 .social-link:hover {
   border-color: white;
-  transform: rotate(-5deg) scale(1.1);
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -482,7 +507,9 @@ body {
   text-align: center;
   padding: 2rem;
   color: rgba(255, 255, 255, 0.2);
-  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
 }
 
 .footer-line {
@@ -515,7 +542,7 @@ body {
   }
 
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
   }
 
   .post-grid {
@@ -528,6 +555,6 @@ body {
   }
 
   .post-detail h1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 }
