@@ -1,0 +1,9 @@
+.env
+*.pem
+*.key
+_site/
+.jekyll-cache/
+.sass-cache/
+.DS_Store
+Thumbs.db
+node_modules/
