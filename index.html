@@ -11,73 +11,134 @@
 </head>
 <body>
 
-  <!-- ── 메인 윈도우: Notepad 스타일 ── -->
-  <div class="win" id="win-main">
-    <div class="win-titlebar">
-      <div class="win-titlebar-left">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' fill='none' stroke='%23888' stroke-width='1'/%3E%3Cline x1='4' y1='5' x2='12' y2='5' stroke='%23888' stroke-width='1'/%3E%3Cline x1='4' y1='8' x2='10' y2='8' stroke='%23888' stroke-width='1'/%3E%3Cline x1='4' y1='11' x2='11' y2='11' stroke='%23888' stroke-width='1'/%3E%3C/svg%3E" alt="" class="win-icon">
-        <span class="win-title">RTV — blog.txt</span>
+  <!-- ══════════════════════════════════════
+       Explorer 메인 (전체 화면)
+       ══════════════════════════════════════ -->
+  <div class="explorer">
+
+    <!-- 탐색기 주소바 -->
+    <div class="explorer-bar">
+      <div class="explorer-bar-left">
+        <button class="explorer-nav-btn" disabled>←</button>
+        <button class="explorer-nav-btn" disabled>→</button>
+        <button class="explorer-nav-btn">↑</button>
       </div>
-      <div class="win-controls">
-        <button class="win-btn win-minimize">─</button>
-        <button class="win-btn win-maximize">□</button>
-        <button class="win-btn win-close">×</button>
+      <div class="explorer-address">
+        <span class="address-icon">📁</span>
+        <span class="address-path" id="address-path">C:\Users\RTV\Blog</span>
       </div>
     </div>
-    <div class="win-menubar">
-      <a href="#home" class="win-menu" data-page="home">File</a>
-      <a href="#blog" class="win-menu" data-page="blog">Blog</a>
-      <a href="#about" class="win-menu" data-page="about">About</a>
+
+    <!-- 탐색기 툴바 / 탭 -->
+    <div class="explorer-tabs">
+      <a href="#home" class="explorer-tab active" data-page="home">Home</a>
+      <a href="#blog" class="explorer-tab" data-page="blog">Blog</a>
+      <a href="#about" class="explorer-tab" data-page="about">About</a>
     </div>
-    <div class="win-body">
+
+    <!-- 콘텐츠 영역 -->
+    <div class="explorer-body">
 
       <!-- Home -->
       <section id="page-home" class="page active">
-        <div class="notepad-content">
-          <p class="notepad-line typing">RTV</p>
-          <p class="notepad-line dim">notes & scrawls</p>
-          <br>
-          <p class="notepad-line dim">// recent</p>
-          <div id="recent-posts"></div>
+        <div class="explorer-sidebar">
+          <div class="sidebar-section">
+            <p class="sidebar-label">Quick access</p>
+            <a href="#blog" data-page="blog" class="sidebar-item">📂 Blog</a>
+            <a href="#about" data-page="about" class="sidebar-item">📄 About</a>
+          </div>
+          <div class="sidebar-section">
+            <p class="sidebar-label">Tags</p>
+            <div id="sidebar-tags"></div>
+          </div>
+        </div>
+        <div class="explorer-main">
+          <div class="explorer-heading">
+            <h1>RTV</h1>
+            <p>notes & scrawls</p>
+          </div>
+          <div class="file-grid" id="recent-posts"></div>
         </div>
       </section>
 
       <!-- Blog -->
       <section id="page-blog" class="page">
-        <div class="notepad-content">
-          <p class="notepad-line dim">// archive</p>
+        <div class="explorer-sidebar">
+          <div class="sidebar-section">
+            <p class="sidebar-label">Quick access</p>
+            <a href="#home" data-page="home" class="sidebar-item">🏠 Home</a>
+            <a href="#about" data-page="about" class="sidebar-item">📄 About</a>
+          </div>
+          <div class="sidebar-section">
+            <p class="sidebar-label">Tags</p>
+            <div id="sidebar-tags-blog"></div>
+          </div>
+        </div>
+        <div class="explorer-main">
+          <div class="file-list-header">
+            <span class="col-name">Name</span>
+            <span class="col-date">Date modified</span>
+            <span class="col-type">Type</span>
+          </div>
           <div id="all-posts"></div>
         </div>
       </section>
 
       <!-- About -->
       <section id="page-about" class="page">
-        <div class="notepad-content">
-          <p class="notepad-line dim">// about</p>
-          <br>
-          <p class="notepad-line">RTV</p>
-          <p class="notepad-line dim"><a href="https://github.com/RTV-GIT" target="_blank" class="link">github.com/RTV-GIT</a></p>
+        <div class="explorer-sidebar">
+          <div class="sidebar-section">
+            <p class="sidebar-label">Quick access</p>
+            <a href="#home" data-page="home" class="sidebar-item">🏠 Home</a>
+            <a href="#blog" data-page="blog" class="sidebar-item">📂 Blog</a>
+          </div>
         </div>
-      </section>
-
-      <!-- Post detail -->
-      <section id="page-post" class="page">
-        <div id="post-content" class="notepad-content"></div>
-        <div class="notepad-content">
-          <br>
-          <a href="#blog" class="link" data-page="blog">&lt; back</a>
+        <div class="explorer-main">
+          <div class="about-content">
+            <p class="about-name">RTV</p>
+            <a href="https://github.com/RTV-GIT" target="_blank" class="about-link">github.com/RTV-GIT</a>
+          </div>
         </div>
       </section>
 
     </div>
-    <div class="win-statusbar">
-      <span class="status-left" id="status-info">Ln 1, Col 1</span>
-      <span class="status-right">UTF-8</span>
+
+    <!-- 탐색기 상태바 -->
+    <div class="explorer-statusbar">
+      <span id="item-count">0 items</span>
     </div>
   </div>
 
-  <!-- 푸터 (윈도우 밖) -->
-  <footer class="footer">© 2026 RTV</footer>
+  <!-- ══════════════════════════════════════
+       메모장 팝업 (오버레이)
+       ══════════════════════════════════════ -->
+  <div class="overlay" id="overlay">
+    <div class="notepad" id="notepad">
+      <div class="notepad-titlebar">
+        <div class="notepad-titlebar-left">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' fill='none' stroke='%23888' stroke-width='1'/%3E%3Cline x1='4' y1='5' x2='12' y2='5' stroke='%23888' stroke-width='1'/%3E%3Cline x1='4' y1='8' x2='10' y2='8' stroke='%23888' stroke-width='1'/%3E%3Cline x1='4' y1='11' x2='11' y2='11' stroke='%23888' stroke-width='1'/%3E%3C/svg%3E" alt="" class="notepad-icon">
+          <span class="notepad-title" id="notepad-title">untitled.txt</span>
+        </div>
+        <div class="notepad-controls">
+          <button class="notepad-btn np-minimize">─</button>
+          <button class="notepad-btn np-maximize">□</button>
+          <button class="notepad-btn np-close" id="notepad-close">×</button>
+        </div>
+      </div>
+      <div class="notepad-menubar">
+        <span class="np-menu">File</span>
+        <span class="np-menu">Edit</span>
+        <span class="np-menu">Format</span>
+        <span class="np-menu">View</span>
+        <span class="np-menu">Help</span>
+      </div>
+      <div class="notepad-body" id="notepad-body"></div>
+      <div class="notepad-statusbar">
+        <span id="np-status">Ln 1, Col 1</span>
+        <span>UTF-8</span>
+      </div>
+    </div>
+  </div>
 
   <script src="posts.js"></script>
   <script src="app.js"></script>
