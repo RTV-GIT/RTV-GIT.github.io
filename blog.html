@@ -11,16 +11,27 @@ item_count: "{{ site.posts.size }} items"
 <div class="explorer-main">
   <div class="file-list-header">
     <span class="col-name">Name</span>
-    <span class="col-date">Date modified</span>
-    <span class="col-type">Type</span>
+    <span class="col-date">Date</span>
+    <span class="col-type">Tags</span>
   </div>
 
   {% for post in site.posts %}
-  <div class="file-row" data-slug="{{ post.slug }}" data-tag="{{ post.tags[0] | default: '' }}">
-    <span class="row-icon">📄</span>
-    <span class="row-name">{{ post.title }}.txt</span>
+  <div class="file-row" data-slug="{{ post.slug }}" data-tags="{{ post.tags | join: ',' }}">
+    {% if post.thumbnail %}
+    <div class="row-thumb" style="background-image: url('{{ post.thumbnail }}')"></div>
+    {% else %}
+    <div class="row-thumb row-thumb--empty">📄</div>
+    {% endif %}
+    <div class="row-info">
+      <span class="row-name">{{ post.title }}</span>
+      <span class="row-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span>
+    </div>
     <span class="row-date">{{ post.date | date: '%Y-%m-%d' }}</span>
-    <span class="row-type">{{ post.tags[0] | default: "" }}</span>
+    <div class="row-tags">
+      {% for tag in post.tags %}
+      <span class="tag-chip">{{ tag }}</span>
+      {% endfor %}
+    </div>
   </div>
   {% endfor %}
 

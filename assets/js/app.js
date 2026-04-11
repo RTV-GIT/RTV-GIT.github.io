@@ -26,9 +26,12 @@
       if (!post) return;
 
       notepadTitle.textContent = post.title + '.txt - Notepad';
+      var tagsHtml = (post.tags || []).map(function(t) {
+        return '<span class="tag-chip">' + t + '</span>';
+      }).join(' ');
       notepadBody.innerHTML =
         '<h1>' + post.title + '</h1>' +
-        '<div class="meta">' + post.date + ' · ' + post.tag + '</div>' +
+        '<div class="meta">' + post.date + ' · ' + tagsHtml + '</div>' +
         '<div class="body">' + post.body + '</div>';
 
       var lines = post.body.split('\n').length;
@@ -44,13 +47,14 @@
 
   // ── 태그 필터링 ──
   function filterByTag(tag) {
-    var rows = document.querySelectorAll('.file-row[data-tag]');
-    var items = document.querySelectorAll('.file-item[data-tag]');
-    var all = Array.prototype.slice.call(rows).concat(Array.prototype.slice.call(items));
+    var rows = document.querySelectorAll('.file-row[data-tags]');
+    var cards = document.querySelectorAll('.post-card[data-tags]');
+    var all = Array.prototype.slice.call(rows).concat(Array.prototype.slice.call(cards));
     var visibleCount = 0;
 
     all.forEach(function (el) {
-      if (!tag || el.dataset.tag === tag) {
+      var tags = (el.dataset.tags || '').split(',');
+      if (!tag || tags.indexOf(tag) !== -1) {
         el.style.display = '';
         visibleCount++;
       } else {

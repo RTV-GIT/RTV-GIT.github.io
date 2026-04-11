@@ -6,7 +6,7 @@ layout: null
     "slug": {{ post.slug | jsonify }},
     "title": {{ post.title | jsonify }},
     "date": "{{ post.date | date: '%Y-%m-%d' }}",
-    "tag": {{ post.tags[0] | default: "" | jsonify }},
+    "tags": {{ post.tags | jsonify }},
     "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncate: 120 | jsonify }},
     "body": {{ post.content | jsonify }}
   }{% unless forloop.last %},{% endunless %}
