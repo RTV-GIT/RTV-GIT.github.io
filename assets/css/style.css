@@ -208,6 +208,25 @@ body {
   padding: 3rem 3rem !important;
 }
 
+.home-hero {
+  text-align: center;
+}
+
+.home-title {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--fg-bright);
+  letter-spacing: 2px;
+}
+
+.home-subtitle {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--fg-dim);
+  margin-top: 0.5rem;
+}
+
 .rdp-banner {
   font-family: var(--font-mono);
   font-size: 15px;
