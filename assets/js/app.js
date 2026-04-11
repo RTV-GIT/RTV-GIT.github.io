@@ -123,16 +123,4 @@
     filterByTag(initialTag);
   }
 
-  // ── 작업표시줄 시계 ──
-  var clock = document.getElementById('taskbar-clock');
-  if (clock) {
-    function updateClock() {
-      var now = new Date();
-      var h = String(now.getHours()).padStart(2, '0');
-      var m = String(now.getMinutes()).padStart(2, '0');
-      clock.textContent = h + ':' + m;
-    }
-    updateClock();
-    setInterval(updateClock, 30000);
-  }
 })();
