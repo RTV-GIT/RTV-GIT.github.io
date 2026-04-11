@@ -1,29 +1,33 @@
 ---
-layout: default
+layout: desktop
 title: RTV
-nav: home
-address: "C:\\Users\\RTV\\Blog"
-item_count: "{{ site.posts.size }} items"
 ---
 
-{% include sidebar.html %}
+<!-- 바탕화면 아이콘들 -->
+<div class="desktop-icons">
+  <a href="{{ '/blog' | relative_url }}" class="desktop-icon">
+    <span class="desktop-icon-img">📂</span>
+    <span class="desktop-icon-label">Blog</span>
+  </a>
+  <a href="{{ '/about' | relative_url }}" class="desktop-icon">
+    <span class="desktop-icon-img">📄</span>
+    <span class="desktop-icon-label">About.txt</span>
+  </a>
+  <a href="https://github.com/RTV-GIT" target="_blank" class="desktop-icon">
+    <span class="desktop-icon-img">🌐</span>
+    <span class="desktop-icon-label">GitHub</span>
+  </a>
 
-<div class="explorer-main">
-  <div class="explorer-heading">
-    <h1>RTV</h1>
-    <p>notes &amp; scrawls</p>
+  {% for post in site.posts limit:6 %}
+  <div class="desktop-icon" data-slug="{{ post.slug }}">
+    <span class="desktop-icon-img">📝</span>
+    <span class="desktop-icon-label">{{ post.title }}.txt</span>
   </div>
+  {% endfor %}
+</div>
 
-  <div class="file-grid">
-    {% for post in site.posts limit:12 %}
-    <div class="file-item" data-slug="{{ post.slug }}" data-tag="{{ post.tags[0] | default: '' }}">
-      <span class="file-icon">📄</span>
-      <span class="file-name">{{ post.title }}.txt</span>
-    </div>
-    {% endfor %}
-
-    {% if site.posts.size == 0 %}
-    <p class="empty">( empty )</p>
-    {% endif %}
-  </div>
+<!-- 바탕화면 중앙 타이틀 (낙서 이미지 배치 영역) -->
+<div class="desktop-watermark">
+  <span class="watermark-title">RTV</span>
+  <span class="watermark-sub">notes & scrawls</span>
 </div>
