@@ -7,10 +7,11 @@
   const allContainer = document.getElementById('all-posts');
   const postContent = document.getElementById('post-content');
 
-  // ── 포스트 카드 렌더 (Home 최근 글) ──
+  const EMPTY = '<p class="empty">...</p>';
+
   function renderRecentPosts() {
-    const recent = POSTS.slice(0, 4);
-    recentContainer.innerHTML = recent.map(post => `
+    if (!POSTS.length) { recentContainer.innerHTML = EMPTY; return; }
+    recentContainer.innerHTML = POSTS.slice(0, 4).map(post => `
       <article class="post-card" data-id="${post.id}">
         <span class="tag">${post.tag}</span>
         <h3>${post.title}</h3>
@@ -20,8 +21,8 @@
     `).join('');
   }
 
-  // ── 포스트 리스트 렌더 (Blog 전체 목록) ──
   function renderAllPosts() {
+    if (!POSTS.length) { allContainer.innerHTML = EMPTY; return; }
     allContainer.innerHTML = POSTS.map(post => `
       <div class="post-list-item" data-id="${post.id}">
         <span class="list-date">${post.date}</span>

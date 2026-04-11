@@ -500,6 +500,16 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* ── 빈 상태 ── */
+.empty {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.15);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  padding: 4rem 0;
+  letter-spacing: 8px;
+}
+
 /* ── 푸터 ── */
 .footer {
   position: relative;
