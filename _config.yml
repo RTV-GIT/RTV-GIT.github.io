@@ -1,0 +1,11 @@
+title: RTV
+description: notes & scrawls
+url: "https://rtv-git.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: /posts/:slug/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

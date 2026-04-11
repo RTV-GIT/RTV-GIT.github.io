@@ -141,16 +141,8 @@ body {
 /* ── 콘텐츠 ── */
 .explorer-body {
   flex: 1;
-  overflow: hidden;
-}
-
-.page {
-  display: none;
-  height: 100%;
-}
-
-.page.active {
   display: flex;
+  overflow: hidden;
 }
 
 /* ── 사이드바 ── */

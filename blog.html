@@ -1,0 +1,45 @@
+---
+layout: default
+title: RTV — Archive
+nav: blog
+address: "C:\\Users\\RTV\\Blog\\Archive"
+item_count: "{{ site.posts.size }} items"
+---
+
+<div class="explorer-sidebar">
+  <div class="sidebar-section">
+    <p class="sidebar-label">Quick access</p>
+    <a href="{{ '/' | relative_url }}" class="sidebar-item">🏠 Home</a>
+    <a href="{{ '/about' | relative_url }}" class="sidebar-item">📄 About</a>
+  </div>
+  {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq %}
+  {% if all_tags.size > 0 %}
+  <div class="sidebar-section">
+    <p class="sidebar-label">Tags</p>
+    {% for tag in all_tags %}
+    <span class="sidebar-item">📁 {{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+<div class="explorer-main">
+  <div class="file-list-header">
+    <span class="col-name">Name</span>
+    <span class="col-date">Date modified</span>
+    <span class="col-type">Type</span>
+  </div>
+
+  {% for post in site.posts %}
+  <div class="file-row" data-slug="{{ post.slug }}">
+    <span class="row-icon">📄</span>
+    <span class="row-name">{{ post.title }}.txt</span>
+    <span class="row-date">{{ post.date | date: '%Y-%m-%d' }}</span>
+    <span class="row-type">{{ post.tags[0] | default: "" }}</span>
+  </div>
+  {% endfor %}
+
+  {% if site.posts.size == 0 %}
+  <p class="empty" style="padding: 2rem 0.75rem;">( empty )</p>
+  {% endif %}
+</div>
