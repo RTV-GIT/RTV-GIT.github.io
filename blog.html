@@ -6,22 +6,7 @@ address: "C:\\Users\\RTV\\Blog\\Archive"
 item_count: "{{ site.posts.size }} items"
 ---
 
-<div class="explorer-sidebar">
-  <div class="sidebar-section">
-    <p class="sidebar-label">Quick access</p>
-    <a href="{{ '/' | relative_url }}" class="sidebar-item">🏠 Home</a>
-    <a href="{{ '/about' | relative_url }}" class="sidebar-item">📄 About</a>
-  </div>
-  {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq %}
-  {% if all_tags.size > 0 %}
-  <div class="sidebar-section">
-    <p class="sidebar-label">Tags</p>
-    {% for tag in all_tags %}
-    <span class="sidebar-item">📁 {{ tag }}</span>
-    {% endfor %}
-  </div>
-  {% endif %}
-</div>
+{% include sidebar.html %}
 
 <div class="explorer-main">
   <div class="file-list-header">
@@ -31,7 +16,7 @@ item_count: "{{ site.posts.size }} items"
   </div>
 
   {% for post in site.posts %}
-  <div class="file-row" data-slug="{{ post.slug }}">
+  <div class="file-row" data-slug="{{ post.slug }}" data-tag="{{ post.tags[0] | default: '' }}">
     <span class="row-icon">📄</span>
     <span class="row-name">{{ post.title }}.txt</span>
     <span class="row-date">{{ post.date | date: '%Y-%m-%d' }}</span>

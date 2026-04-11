@@ -6,13 +6,7 @@ address: "C:\\Users\\RTV\\Blog\\About"
 item_count: "1 item"
 ---
 
-<div class="explorer-sidebar">
-  <div class="sidebar-section">
-    <p class="sidebar-label">Quick access</p>
-    <a href="{{ '/' | relative_url }}" class="sidebar-item">🏠 Home</a>
-    <a href="{{ '/blog' | relative_url }}" class="sidebar-item">📂 Blog</a>
-  </div>
-</div>
+{% include sidebar.html %}
 
 <div class="explorer-main">
   <div class="about-content">
