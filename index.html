@@ -2,43 +2,46 @@
 layout: default
 title: RTV
 nav: home
-address: "C:\\Users\\RTV\\Blog"
-item_count: "{{ site.posts.size }} items"
+address: "C:\\Users\\RTV\\Desktop"
+item_count: "2 items"
 ---
 
 {% include sidebar.html %}
 
-<div class="explorer-main">
-  <div class="explorer-heading">
-    <h1>RTV</h1>
-    <p>notes &amp; scrawls</p>
+<div class="explorer-main home-main">
+
+  <!-- RDP 접속 느낌 터미널 -->
+  <div class="rdp-banner">
+    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">whoami</span></div>
+    <div class="rdp-line dim">RTV-DESKTOP\RTV</div>
+    <div class="rdp-line">&nbsp;</div>
+    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo %COMPUTERNAME%</span></div>
+    <div class="rdp-line dim">RTV-DESKTOP</div>
+    <div class="rdp-line">&nbsp;</div>
+    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">net session</span></div>
+    <div class="rdp-line dim">Remote connection established.</div>
+    <div class="rdp-line dim">Session: RDP-Tcp#{{ site.posts.size }}  &nbsp; User: visitor</div>
+    <div class="rdp-line">&nbsp;</div>
+    <div class="rdp-line accent">Welcome to my desktop. Feel free to look around.</div>
+    <div class="rdp-cursor">C:\Users\RTV> <span class="blink">_</span></div>
   </div>
 
-  <div class="post-cards">
-    {% for post in site.posts limit:12 %}
-    <div class="post-card" data-slug="{{ post.slug }}" data-tags="{{ post.tags | join: ',' }}">
-      {% if post.thumbnail %}
-      <div class="post-card-thumb" style="background-image: url('{{ post.thumbnail }}')"></div>
-      {% else %}
-      <div class="post-card-thumb post-card-thumb--empty">📄</div>
-      {% endif %}
-      <div class="post-card-body">
-        <h3 class="post-card-title">{{ post.title }}</h3>
-        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</p>
-        <div class="post-card-meta">
-          <span class="post-card-date">{{ post.date | date: '%Y-%m-%d' }}</span>
-          <div class="post-card-tags">
-            {% for tag in post.tags %}
-            <span class="tag-chip">{{ tag }}</span>
-            {% endfor %}
-          </div>
-        </div>
+  <!-- 바로가기 -->
+  <div class="home-shortcuts">
+    <a href="{{ '/blog' | relative_url }}" class="shortcut">
+      <span class="shortcut-icon">📂</span>
+      <div class="shortcut-info">
+        <span class="shortcut-name">Blog</span>
+        <span class="shortcut-desc">{{ site.posts.size }} posts</span>
       </div>
-    </div>
-    {% endfor %}
-
-    {% if site.posts.size == 0 %}
-    <p class="empty">( empty )</p>
-    {% endif %}
+    </a>
+    <a href="{{ '/about' | relative_url }}" class="shortcut">
+      <span class="shortcut-icon">📄</span>
+      <div class="shortcut-info">
+        <span class="shortcut-name">About.txt</span>
+        <span class="shortcut-desc">who am i</span>
+      </div>
+    </a>
   </div>
+
 </div>

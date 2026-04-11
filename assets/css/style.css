@@ -199,23 +199,96 @@ body {
   background: var(--bg);
 }
 
-.explorer-heading {
-  margin-bottom: 2rem;
+/* ── Home (My Desktop) ── */
+.home-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 3rem !important;
 }
 
-.explorer-heading h1 {
+.rdp-banner {
   font-family: var(--font-mono);
-  font-size: 28px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fg);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+}
+
+.rdp-line.dim {
+  color: var(--fg-dim);
+}
+
+.rdp-line.accent {
+  color: var(--accent);
+}
+
+.rdp-typing {
+  color: var(--fg-bright);
+}
+
+.rdp-cursor {
+  color: var(--fg);
+}
+
+.blink {
+  animation: cursorBlink 1s step-end infinite;
+  color: var(--accent);
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.home-shortcuts {
+  display: flex;
+  gap: 1rem;
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  padding: 1.2rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.shortcut:hover {
+  border-color: var(--border-light);
+  background: var(--surface-2);
+}
+
+.shortcut-icon {
+  font-size: 32px;
+}
+
+.shortcut-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcut-name {
+  font-family: var(--font-mono);
+  font-size: 14px;
   font-weight: 500;
   color: var(--fg-bright);
-  letter-spacing: 3px;
 }
 
-.explorer-heading p {
+.shortcut-desc {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--fg-dim);
-  margin-top: 0.3rem;
+  margin-top: 0.15rem;
 }
 
 /* ── 태그 칩 (공통) ── */
@@ -674,6 +747,19 @@ body {
 
   .explorer-main {
     padding: 1rem;
+  }
+
+  .home-main {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .rdp-banner {
+    font-size: 11px;
+    padding: 1rem;
+  }
+
+  .home-shortcuts {
+    flex-direction: column;
   }
 
   .post-card-thumb {
