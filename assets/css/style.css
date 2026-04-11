@@ -227,6 +227,10 @@ body {
   color: var(--accent);
 }
 
+.rdp-line.warn {
+  color: #e8a735;
+}
+
 .rdp-typing {
   color: var(--fg-bright);
 }

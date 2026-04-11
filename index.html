@@ -12,17 +12,18 @@ item_count: "2 items"
 
   <!-- RDP 접속 느낌 터미널 -->
   <div class="rdp-banner">
-    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">whoami</span></div>
-    <div class="rdp-line dim">RTV-DESKTOP\RTV</div>
-    <div class="rdp-line">&nbsp;</div>
-    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo %COMPUTERNAME%</span></div>
-    <div class="rdp-line dim">RTV-DESKTOP</div>
+    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">query session</span></div>
+    <div class="rdp-line dim"> SESSIONNAME    USERNAME    ID  STATE   TYPE</div>
+    <div class="rdp-line dim"> rdp-tcp#7      RTV         1   Active  rdpwd</div>
+    <div class="rdp-line warn"> rdp-tcp#??     unknown     2   Active  rdpwd</div>
     <div class="rdp-line">&nbsp;</div>
     <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">net session</span></div>
-    <div class="rdp-line dim">Remote connection established.</div>
-    <div class="rdp-line dim">Session: RDP-Tcp#{{ site.posts.size }}  &nbsp; User: visitor</div>
+    <div class="rdp-line warn">There are 2 active sessions on this machine.</div>
     <div class="rdp-line">&nbsp;</div>
-    <div class="rdp-line accent">Welcome to my desktop. Feel free to look around.</div>
+    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo ...who's there?</span></div>
+    <div class="rdp-line dim">...who's there?</div>
+    <div class="rdp-line">&nbsp;</div>
+    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">msg * "I can see you. Don't touch anything."</span></div>
     <div class="rdp-cursor">C:\Users\RTV> <span class="blink">_</span></div>
   </div>
 
