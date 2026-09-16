@@ -9,43 +9,129 @@ item_count: "2 items"
 {% include sidebar.html %}
 
 <div class="explorer-main home-main">
-
-  <div class="home-hero">
-    <h1 class="home-title">RTV's Secret Windows VM</h1>
-    <p class="home-subtitle">You're not supposed to be here.</p>
-  </div>
-
   <div class="home-split">
-    <!-- 왼쪽: 소개 -->
-    <div class="home-left">
-      <p class="home-bio-name">RTV</p>
-      <p class="home-bio-role">Security Researcher</p>
-      <p class="home-bio-tags">CTI · Binary Analysis · Vulnerability Research</p>
-      <div class="home-bio-links">
-        <a href="{{ '/about' | relative_url }}" class="home-bio-link">About.txt</a>
-        <a href="{{ '/blog' | relative_url }}" class="home-bio-link">Blog/</a>
-        <a href="https://github.com/RTV-GIT" target="_blank" class="home-bio-link">GitHub</a>
+
+    <!-- 왼쪽 창: About -->
+    <div class="win-panel">
+      <div class="win-titlebar">
+        <span class="win-titlebar-text">About.txt — Notepad</span>
+        <div class="win-titlebar-buttons">
+          <span class="win-btn">─</span>
+          <span class="win-btn">□</span>
+          <span class="win-btn win-btn-close">×</span>
+        </div>
+      </div>
+      <div class="win-body win-body-scroll">
+        <div class="about-content">
+          <p class="about-name">RTV</p>
+
+          <div class="about-section">
+            <h2 class="about-heading">Bio</h2>
+            <p class="about-text">
+              Security Researcher with a broad interest spanning from Cyber Threat Intelligence to binary analysis and vulnerability research.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-heading">Timeline</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="timeline-date">2022.03 ~ Now</span>
+                <span class="timeline-desc">Korea Univ. Smart Security</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">2024.07 ~ 2025.02</span>
+                <span class="timeline-desc">Best of the Best 13th — Vulnerability Analysis, WatchOut</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">2025.03 ~ Now</span>
+                <span class="timeline-desc">ENKI Whitehat Threat Intelligence Team</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-heading">CVE</h2>
+            <ul class="about-list">
+              <li><span class="cve-id">CVE-2026-54233</span> — Denial of service in vLLM audio transcription endpoint via decompression bomb — a small OPUS file expands to ~14.9GB of PCM data, exhausting host memory</li>
+              <li><span class="cve-id">CVE-2025-20939</span> — Improper authorization in Samsung Galaxy Watch wireless download protocol allowing physical attackers to bypass auth and update the device identifier</li>
+              <li><span class="cve-id">CVE-2025-20911</span> — Improper access control in Samsung Galaxy Watch Wi-Fi service allowing privileged local attackers to spoof the MAC address</li>
+              <li><span class="cve-id">CVE-2024-53605</span> — Incorrect access control in Handcent NextSMS allowing unauthorized access to sensitive data via exposed content provider</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-heading">CTF</h2>
+            <ul class="about-list">
+              <li>2026 HACKSIUM BUSAN (Finalist)</li>
+              <li>Kaspersky CTF 2026 (1st)</li>
+              <li>DEFCON 2026 (12th)</li>
+              <li>ELECCON 2025 (6th)</li>
+              <li>SAS CTF 2025 (9th)</li>
+              <li>Kaspersky CTF 2025 (1st)</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-heading">Speaking</h2>
+            <ul class="about-list">
+              <li>KCSCON 2026</li>
+              <li>상반기 침해사고 정보공유 세미나</li>
+              <li>K-CTI 2026</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-heading">Links</h2>
+            <ul class="about-list about-links">
+              <li><a href="https://x.com/1234rffsda" target="_blank" class="about-link">X (Twitter)</a></li>
+              <li><a href="https://www.linkedin.com/in/%EC%98%81%EC%9A%B4-%EA%B9%80-8b01803a5/" target="_blank" class="about-link">LinkedIn</a></li>
+              <li><a href="https://github.com/RTV-GIT" target="_blank" class="about-link">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- 오른쪽: 터미널 -->
-    <div class="home-right">
-      <div class="rdp-banner">
-        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">query session</span></div>
-        <div class="rdp-line dim"> SESSIONNAME    USERNAME    ID  STATE   TYPE</div>
-        <div class="rdp-line dim"> rdp-tcp#7      RTV         1   Active  rdpwd</div>
-        <div class="rdp-line warn"> rdp-tcp#??     unknown     2   Active  rdpwd</div>
+    <!-- 오른쪽 창: Terminal -->
+    <div class="win-panel">
+      <div class="win-titlebar win-titlebar-dark">
+        <span class="win-titlebar-text">cmd.exe</span>
+        <div class="win-titlebar-buttons">
+          <span class="win-btn">─</span>
+          <span class="win-btn">□</span>
+          <span class="win-btn win-btn-close">×</span>
+        </div>
+      </div>
+      <div class="win-body win-body-terminal">
+        <pre class="ascii-banner">
+ ____  _______     __
+|  _ \|__   __|   / /
+| |_) |  | |_   _/ /
+|  _ <   | \ \ / / /
+| |_) |  | |\ V / /
+|____/   |_| \_/_/
+        </pre>
+        <div class="terminal-tagline">RTV's Secret Windows VM</div>
+        <div class="terminal-sub">You're not supposed to be here.</div>
         <div class="rdp-line">&nbsp;</div>
-        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">net session</span></div>
-        <div class="rdp-line warn">There are 2 active sessions on this machine.</div>
-        <div class="rdp-line">&nbsp;</div>
-        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo ...who's there?</span></div>
-        <div class="rdp-line dim">...who's there?</div>
-        <div class="rdp-line">&nbsp;</div>
-        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">msg * "I can see you. Don't touch anything."</span></div>
-        <div class="rdp-cursor">C:\Users\RTV> <span class="blink">_</span></div>
+        <div class="rdp-banner-inline">
+          <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">query session</span></div>
+          <div class="rdp-line dim"> SESSIONNAME    USERNAME    ID  STATE   TYPE</div>
+          <div class="rdp-line dim"> rdp-tcp#7      RTV         1   Active  rdpwd</div>
+          <div class="rdp-line warn"> rdp-tcp#??     unknown     2   Active  rdpwd</div>
+          <div class="rdp-line">&nbsp;</div>
+          <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">net session</span></div>
+          <div class="rdp-line warn">There are 2 active sessions on this machine.</div>
+          <div class="rdp-line">&nbsp;</div>
+          <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo ...who's there?</span></div>
+          <div class="rdp-line dim">...who's there?</div>
+          <div class="rdp-line">&nbsp;</div>
+          <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">msg * "I can see you. Don't touch anything."</span></div>
+          <div class="rdp-cursor">C:\Users\RTV> <span class="blink">_</span></div>
+        </div>
       </div>
     </div>
+
   </div>
-
 </div>
