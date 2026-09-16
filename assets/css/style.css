@@ -296,6 +296,75 @@ body {
   50% { opacity: 0; }
 }
 
+.home-split {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
+  flex: 1;
+}
+
+.home-left {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.home-right .rdp-banner {
+  width: 100%;
+}
+
+.home-bio-name {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--fg-bright);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.home-bio-role {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.home-bio-tags {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-dim);
+  margin-bottom: 1.5rem;
+}
+
+.home-bio-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.home-bio-link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.home-bio-link::before {
+  content: '> ';
+  color: var(--accent);
+}
+
+.home-bio-link:hover {
+  color: var(--fg-bright);
+}
+
 .home-shortcuts {
   display: flex;
   gap: 1rem;
@@ -891,6 +960,22 @@ body {
   .rdp-banner {
     font-size: 11px;
     padding: 1rem;
+  }
+
+  .home-split {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .home-left {
+    flex: none;
+    text-align: center;
+  }
+
+  .home-bio-links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .home-shortcuts {

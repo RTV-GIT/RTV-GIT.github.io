@@ -15,39 +15,37 @@ item_count: "2 items"
     <p class="home-subtitle">You're not supposed to be here.</p>
   </div>
 
-  <!-- RDP 접속 느낌 터미널 -->
-  <div class="rdp-banner">
-    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">query session</span></div>
-    <div class="rdp-line dim"> SESSIONNAME    USERNAME    ID  STATE   TYPE</div>
-    <div class="rdp-line dim"> rdp-tcp#7      RTV         1   Active  rdpwd</div>
-    <div class="rdp-line warn"> rdp-tcp#??     unknown     2   Active  rdpwd</div>
-    <div class="rdp-line">&nbsp;</div>
-    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">net session</span></div>
-    <div class="rdp-line warn">There are 2 active sessions on this machine.</div>
-    <div class="rdp-line">&nbsp;</div>
-    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo ...who's there?</span></div>
-    <div class="rdp-line dim">...who's there?</div>
-    <div class="rdp-line">&nbsp;</div>
-    <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">msg * "I can see you. Don't touch anything."</span></div>
-    <div class="rdp-cursor">C:\Users\RTV> <span class="blink">_</span></div>
-  </div>
+  <div class="home-split">
+    <!-- 왼쪽: 소개 -->
+    <div class="home-left">
+      <p class="home-bio-name">RTV</p>
+      <p class="home-bio-role">Security Researcher</p>
+      <p class="home-bio-tags">CTI · Binary Analysis · Vulnerability Research</p>
+      <div class="home-bio-links">
+        <a href="{{ '/about' | relative_url }}" class="home-bio-link">About.txt</a>
+        <a href="{{ '/blog' | relative_url }}" class="home-bio-link">Blog/</a>
+        <a href="https://github.com/RTV-GIT" target="_blank" class="home-bio-link">GitHub</a>
+      </div>
+    </div>
 
-  <!-- 바로가기 -->
-  <div class="home-shortcuts">
-    <a href="{{ '/blog' | relative_url }}" class="shortcut">
-      <span class="shortcut-icon">📂</span>
-      <div class="shortcut-info">
-        <span class="shortcut-name">Blog</span>
-        <span class="shortcut-desc">{{ site.posts.size }} posts</span>
+    <!-- 오른쪽: 터미널 -->
+    <div class="home-right">
+      <div class="rdp-banner">
+        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">query session</span></div>
+        <div class="rdp-line dim"> SESSIONNAME    USERNAME    ID  STATE   TYPE</div>
+        <div class="rdp-line dim"> rdp-tcp#7      RTV         1   Active  rdpwd</div>
+        <div class="rdp-line warn"> rdp-tcp#??     unknown     2   Active  rdpwd</div>
+        <div class="rdp-line">&nbsp;</div>
+        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">net session</span></div>
+        <div class="rdp-line warn">There are 2 active sessions on this machine.</div>
+        <div class="rdp-line">&nbsp;</div>
+        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">echo ...who's there?</span></div>
+        <div class="rdp-line dim">...who's there?</div>
+        <div class="rdp-line">&nbsp;</div>
+        <div class="rdp-line">C:\Users\RTV> <span class="rdp-typing">msg * "I can see you. Don't touch anything."</span></div>
+        <div class="rdp-cursor">C:\Users\RTV> <span class="blink">_</span></div>
       </div>
-    </a>
-    <a href="{{ '/about' | relative_url }}" class="shortcut">
-      <span class="shortcut-icon">📄</span>
-      <div class="shortcut-info">
-        <span class="shortcut-name">About.txt</span>
-        <span class="shortcut-desc">who am i</span>
-      </div>
-    </a>
+    </div>
   </div>
 
 </div>
