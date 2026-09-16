@@ -28,6 +28,34 @@ html, body {
   overflow: hidden;
 }
 
+/* ── Terminal Scrollbar ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--bg);
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
