@@ -3,7 +3,6 @@
     <p class="sidebar-label">Quick access</p>
     <a href="{{ '/' | relative_url }}" class="sidebar-item{% if page.nav == 'home' %} active{% endif %}">🖥 My Desktop</a>
     <a href="{{ '/blog' | relative_url }}" class="sidebar-item{% if page.nav == 'blog' %} active{% endif %}">📂 Blog</a>
-    <a href="{{ '/about' | relative_url }}" class="sidebar-item{% if page.nav == 'about' %} active{% endif %}">📄 About</a>
   </div>
   {% assign all_tags = site.tags | sort %}
   {% assign tag_count = all_tags | size %}
