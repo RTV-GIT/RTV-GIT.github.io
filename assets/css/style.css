@@ -563,7 +563,7 @@ body {
 .about-text {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--fg);
+  color: var(--fg-bright);
   line-height: 1.8;
 }
 
