@@ -517,6 +517,28 @@ body {
   text-decoration: none;
 }
 
+.about-section {
+  margin-top: 2.5rem;
+}
+
+.about-heading {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.8;
+}
+
 .about-link:hover {
   text-decoration: underline;
 }
