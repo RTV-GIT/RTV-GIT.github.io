@@ -539,6 +539,30 @@ body {
   line-height: 1.8;
 }
 
+.about-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about-list li {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 0.4rem 0;
+}
+
+.about-list li::before {
+  content: '>';
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+.cve-id {
+  color: var(--fg-bright);
+  font-weight: 600;
+}
+
 .about-link:hover {
   text-decoration: underline;
 }
