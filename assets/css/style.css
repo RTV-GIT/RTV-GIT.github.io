@@ -585,7 +585,7 @@ body {
 .about-list li {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--fg);
+  color: var(--fg-bright);
   line-height: 1.8;
   padding: 0.4rem 0;
 }
