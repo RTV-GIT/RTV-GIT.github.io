@@ -24,7 +24,6 @@ item_count: "{{ site.posts.size }} items"
     {% endif %}
     <div class="row-info">
       <span class="row-name">{{ post.title }}</span>
-      <span class="row-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span>
     </div>
     <span class="row-date">{{ post.date | date: '%Y-%m-%d' }}</span>
     <div class="row-tags">
