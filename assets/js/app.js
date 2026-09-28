@@ -86,6 +86,8 @@
     // 태그 필터 클릭
     var tagLink = e.target.closest('.tag-filter');
     if (tagLink) {
+      var onBlogPage = document.querySelector('.file-row[data-tags]') || document.querySelector('.post-card[data-tags]');
+      if (!onBlogPage) return;
       e.preventDefault();
       var tag = tagLink.dataset.tag;
       var currentTag = getTagFromURL();
