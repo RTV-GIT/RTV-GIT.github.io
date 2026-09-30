@@ -636,6 +636,13 @@ body {
   font-weight: 500;
   color: var(--fg-bright);
   letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.about-email {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
   margin-bottom: 0.75rem;
 }
 
