@@ -1056,11 +1056,10 @@ body {
 /* ── TOC Panel ── */
 .notepad-toc {
   position: fixed;
-  right: calc(50% + 370px);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 220px;
-  max-height: 60vh;
+  right: calc(50% + 480px);
+  top: 5vh;
+  width: 200px;
+  max-height: 80vh;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 6px;
