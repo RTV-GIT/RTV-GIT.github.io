@@ -73,3 +73,11 @@ Samsung은 프로세서 상태로 구분되는 TrustZone 구조에서 나아가 
 이번엔 이렇게 Knox, TEEGRIS, Rich OS가 각각 무엇이고, 어떤 역할을 하는지 핵심만 짚어보았다. 세부적인 TEEGRIS/Knox의 공격 벡터나 분석 방법 등은 나중에 제대로 연구할 생각이 들면 하려고 한다. 언젠가 실기기를 더 확보하거나(당근 상주?), New 갤럭시를 장만해서 현역 선수가 은퇴하면 TEEGRIS부터 Knox까지 시도해 보지 않을까…
 
 가능하다면? 조만간 제보한 취약점 일부에 대한 분석 글로 돌아오지 않을까 싶다.
+
+## 5. References
+
+- https://support.arm.com/compute-ip/trustzone-for-cortex-a
+- https://developer.samsung.com/teegris/overview.html
+- https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/system-security/knox-vault/
+- https://allsoftwaresucks.blogspot.com/2019/05/reverse-engineering-samsung-exynos-9820.html
+- https://blog.quarkslab.com/a-deep-dive-into-samsungs-trustzone-part-1.html
