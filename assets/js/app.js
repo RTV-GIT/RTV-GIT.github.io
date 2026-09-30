@@ -51,7 +51,7 @@
       notepadToc.style.display = 'none';
       return;
     }
-    notepadToc.style.display = '';
+    notepadToc.style.display = 'block';
     headings.forEach(function (h, i) {
       h.id = 'heading-' + i;
       var li = document.createElement('li');
