@@ -949,12 +949,32 @@ body {
 
 .notepad-body .body ol,
 .notepad-body .body ul {
-  padding-left: 1.5rem;
+  padding-left: 2rem;
   margin-bottom: 1rem;
+  list-style-position: outside;
 }
 
 .notepad-body .body li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.notepad-body .body a {
+  color: var(--fg-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--fg-dim);
+}
+
+.notepad-body .body a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.notepad-body .body blockquote {
+  border-left: 3px solid var(--border-light);
+  padding-left: 1rem;
+  color: var(--fg-dim);
+  margin: 1rem 0;
 }
 
 .notepad-body .body code {
