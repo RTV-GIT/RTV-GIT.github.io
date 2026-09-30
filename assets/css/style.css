@@ -1010,12 +1010,60 @@ body {
   border-radius: 0 0 6px 6px;
 }
 
+/* ── TOC Panel ── */
+.notepad-toc {
+  position: fixed;
+  right: calc(50% + 370px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  max-height: 60vh;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1001;
+}
+
+.toc-titlebar {
+  padding: 0.5rem 0.75rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.toc-item {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg);
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.toc-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--fg-bright);
+}
+
 /* ════════════════════════════════════════
    반응형
    ════════════════════════════════════════ */
 @media (max-width: 700px) {
   .explorer-sidebar {
     display: none;
+  }
+
+  .notepad-toc {
+    display: none !important;
   }
 
   .explorer-main {

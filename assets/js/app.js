@@ -8,6 +8,8 @@
   var notepadTitle = document.getElementById('notepad-title');
   var npStatus = document.getElementById('np-status');
   var itemCount = document.getElementById('item-count');
+  var tocList = document.getElementById('toc-list');
+  var notepadToc = document.getElementById('notepad-toc');
   var postsCache = null;
 
   // ── 포스트 데이터 로드 (한 번만) ──
@@ -37,12 +39,34 @@
       var lines = post.body.split('\n').length;
       npStatus.textContent = 'Ln ' + lines + ', Col 1';
 
+      buildTOC();
       overlay.classList.add('open');
+    });
+  }
+
+  function buildTOC() {
+    tocList.innerHTML = '';
+    var headings = notepadBody.querySelectorAll('.body h2');
+    if (headings.length === 0) {
+      notepadToc.style.display = 'none';
+      return;
+    }
+    notepadToc.style.display = '';
+    headings.forEach(function (h, i) {
+      h.id = 'heading-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      li.textContent = h.textContent.replace(/^## /, '');
+      li.addEventListener('click', function () {
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      tocList.appendChild(li);
     });
   }
 
   function closePost() {
     overlay.classList.remove('open');
+    notepadToc.style.display = 'none';
   }
 
   // ── 태그 필터링 ──
