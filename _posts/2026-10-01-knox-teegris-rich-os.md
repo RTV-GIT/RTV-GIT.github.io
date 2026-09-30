@@ -6,7 +6,7 @@ thumbnail: /assets/img/knox-teegris/image-2.png
 
 ## 1. 개요
 
-갑자기 이런 내용으로 글을 작성하는 이유부터 언급하고 넘어갈까 한다. 최근 퇴근 후에 가장 많은 시간을 쏟는 곳은 바로 코덱스와 함께하는 삼성&모바일 취약점 연구이다. 작업을 시작하게 된 계기는 크게 아래 네가지인 것 같다.
+갑자기 이런 내용으로 글을 작성하는 이유부터 언급하고 넘어갈까 한다. 최근 퇴근 후에 가장 많은 시간을 쏟는 곳은 바로 코덱스와 함께하는 Samsung&모바일 취약점 연구이다. 작업을 시작하게 된 계기는 크게 아래 네가지인 것 같다.
 
 1. 2026년 초, AI의 바이너리 분석 능력이 인간을 뛰어 넘을 뿐만 아니라 이미 특이점을 넘었다고 느낌
 2. BoB 프로젝트 (갤럭시 워치 취약점 연구)를 하면서 모바일 생태계의 취약점과 버그바운티에 대한 지식을 어느 정도 갖춤 
@@ -33,11 +33,11 @@ ARM 프로세서는 하드웨어 레벨에서 Secure/Non-secure 상태를 구분
 
 이렇게 구분된 영역에서 Non-secure 상태로 동작하는 실행 환경을 Rich Execution Environment(REE), Secure 상태에서 동작하는 실행 환경을 Trusted Execution Environment(TEE)라고 부른다. TEE/REE는 물리적으로 나눠진 공간이 아니라, 프로세서의 상태에 따라 구분되는 추상적인 영역이라고 이해하면 될 것 같다. 그동안 왜 "Rich"인지 항상 궁금했는데, 그냥 동작이 풍부해서 "Rich"를 사용한다고 한다.
 
-그럼 Rich OS는 뭘까? 당연히 REE에서 작동하는 운영체제를 지칭한다. 삼성 모바일 환경에선 안드로이드 OS가 이 역할을 수행한다고 보면 된다. Linux 커널 뿐만 아니라 system_server, 각종 네이티브 데몬과 같은 안드로이드의 고권한 구성 요소들이 여기에 포함된다.
+그럼 Rich OS는 뭘까? 당연히 REE에서 작동하는 운영체제를 지칭한다. Samsung 모바일 환경에선 안드로이드 OS가 이 역할을 수행한다고 보면 된다. Linux 커널 뿐만 아니라 system_server, 각종 네이티브 데몬과 같은 안드로이드의 고권한 구성 요소들이 여기에 포함된다.
 
 ![image.png](/assets/img/knox-teegris/image-2.png)
 
-그렇다면 TEEGRIS OS는 Rich OS의 반대겠지? 정확하게는 Rich OS와 반대인 TEE에서 작동하는 OS는 Trusted OS라고 부르며, 삼성에서 자체 개발한 Trusted OS가 TEEGRIS라고 한다. 예전에는 다른 업체의 Trusted OS를 사용하였는데, 갤럭시 S10부터 TEEGRIS로 대체되었다고 한다. 삼성 공식 홈페이지에서 그 기능을 간략하게 확인할 수 있다.
+그렇다면 TEEGRIS OS는 Rich OS의 반대겠지? 정확하게는 Rich OS와 반대인 TEE에서 작동하는 OS는 Trusted OS라고 부르며, Samsung에서 자체 개발한 Trusted OS가 TEEGRIS라고 한다. 예전에는 다른 업체의 Trusted OS를 사용하였는데, 갤럭시 S10부터 TEEGRIS로 대체되었다고 한다. Samsung 공식 홈페이지에서 그 기능을 간략하게 확인할 수 있다.
 
 ![image.png](/assets/img/knox-teegris/image-3.png)
 
@@ -45,7 +45,7 @@ ARM 프로세서는 하드웨어 레벨에서 Secure/Non-secure 상태를 구분
 
 > Targeting TEEGRIS OS doesn't include vulnerabilities of Trustlets. This target refers to Secure OS itself.
 
-Trustlet은 ARM 공식 문서에도 없긴 한데, Trustonic/MobiCore 계열에서 Trusted Application (TA)를 지칭할 때 사용했다고 한다. 과거에 삼성이 MobiCore의 Trusted OS를 사용했다고 하니, 그 흔적이 여기 남아있는게 아닐까 싶다.
+Trustlet은 ARM 공식 문서에도 없긴 한데, Trustonic/MobiCore 계열에서 Trusted Application (TA)를 지칭할 때 사용했다고 한다. 과거에 Samsung이 MobiCore의 Trusted OS를 사용했다고 하니, 그 흔적이 여기 남아있는게 아닐까 싶다.
 
 아무튼 저 문구도 TEEGRIS를 안드로이드와 대응시켜보면 어떤 느낌인지 감이 온다. 갤러리, 메시지, 메모장 같은 User Application에 대한 공격을 안드로이드 OS에 대한 공격으로 볼 수는 없듯이, TrustedZone에 대해서도 같은 기준을 적용한다고 보면 될 것 같다. 물론 ISVP 대상에서 제외될 뿐이지, Samsung 관여 REE Application처럼 일반 제보 대상에는 포함된다는 사실을 `CVE-2021-25469` 같은 사례를 통해 알 수 있다.
 
