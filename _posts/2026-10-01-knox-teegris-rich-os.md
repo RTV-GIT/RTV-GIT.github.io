@@ -1,5 +1,5 @@
 ---
-title: "Knox? TEEGRIS? Rich OS?"
+title: "Knox Vault? TEEGRIS? Rich OS?"
 tags: [study]
 thumbnail: /assets/img/knox-teegris/image-2.png
 ---
