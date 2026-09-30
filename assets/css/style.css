@@ -78,6 +78,49 @@ body {
   background: var(--bg);
 }
 
+/* ── 창 제목바 ── */
+.explorer-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.75rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.explorer-titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.explorer-titlebar-icon {
+  font-size: 12px;
+}
+
+.explorer-titlebar-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg);
+}
+
+.explorer-titlebar-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.explorer-win-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-dim);
+  cursor: default;
+}
+
+.explorer-win-btn-close:hover {
+  color: #e74c3c;
+}
+
 /* ── 주소바 ── */
 .explorer-bar {
   display: flex;

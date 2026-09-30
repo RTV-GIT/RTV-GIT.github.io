@@ -13,6 +13,19 @@
 
   <div class="explorer">
 
+    <!-- 창 제목바 -->
+    <div class="explorer-titlebar">
+      <div class="explorer-titlebar-left">
+        <span class="explorer-titlebar-icon">📁</span>
+        <span class="explorer-titlebar-text">{{ page.title | default: site.title }}</span>
+      </div>
+      <div class="explorer-titlebar-buttons">
+        <span class="explorer-win-btn">─</span>
+        <span class="explorer-win-btn">□</span>
+        <span class="explorer-win-btn explorer-win-btn-close">×</span>
+      </div>
+    </div>
+
     <!-- 주소바 -->
     <div class="explorer-bar">
       <div class="explorer-bar-left">
