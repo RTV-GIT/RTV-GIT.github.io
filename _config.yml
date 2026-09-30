@@ -2,7 +2,12 @@ title: RTV
 description: notes & scrawls
 url: "https://rtv-git.github.io"
 baseurl: ""
-markdown: kramdown
+markdown: CommonMarkGhPages
+commonmark:
+  options: ["SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+plugins:
+  - jekyll-commonmark-ghpages
 permalink: /posts/:slug/
 future: true
 
