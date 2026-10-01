@@ -12,6 +12,12 @@
   var notepadToc = document.getElementById('notepad-toc');
   var postsCache = null;
 
+  var previewContent = document.getElementById('preview-content');
+  var previewThumb = document.getElementById('preview-thumb');
+  var previewTitle = document.getElementById('preview-title');
+  var previewExcerpt = document.getElementById('preview-excerpt');
+  var previewEmpty = document.querySelector('.preview-empty');
+
   // ── 포스트 데이터 로드 (한 번만) ──
   function loadPosts(cb) {
     if (postsCache) return cb(postsCache);
@@ -19,6 +25,38 @@
       .then(function (r) { return r.json(); })
       .then(function (data) { postsCache = data; cb(data); })
       .catch(function () { cb([]); });
+  }
+
+  // ── 미리보기 표시 ──
+  function showPreview(slug) {
+    if (!previewContent) return;
+    loadPosts(function (posts) {
+      var post = posts.find(function (p) { return p.slug === slug; });
+      if (!post) return;
+
+      var tmp = document.createElement('div');
+      tmp.innerHTML = post.body;
+      var firstH2 = tmp.querySelector('h2');
+      var firstP = tmp.querySelector('p');
+
+      previewTitle.textContent = post.title;
+      previewExcerpt.textContent = firstP ? firstP.textContent.substring(0, 200) : '';
+
+      if (post.body.match(/<img[^>]+src="([^"]+)"/)) {
+        var thumbUrl = post.body.match(/<img[^>]+src="([^"]+)"/)[1];
+        previewThumb.style.backgroundImage = 'url(' + thumbUrl + ')';
+        previewThumb.style.display = '';
+      } else {
+        previewThumb.style.display = 'none';
+      }
+
+      previewEmpty.style.display = 'none';
+      previewContent.style.display = '';
+
+      document.querySelectorAll('.file-row').forEach(function (r) {
+        r.classList.toggle('file-row-selected', r.dataset.slug === slug);
+      });
+    });
   }
 
   // ── 메모장 팝업 열기 ──
@@ -86,18 +124,15 @@
       }
     });
 
-    // 태그 버튼 active 상태
     document.querySelectorAll('.tag-filter').forEach(function (btn) {
       btn.classList.toggle('tag-active', btn.dataset.tag === tag);
     });
 
-    // 상태바 업데이트
     if (itemCount) {
       itemCount.textContent = visibleCount + ' items' + (tag ? ' — [' + tag + ']' : '');
     }
   }
 
-  // URL 파라미터에서 태그 읽기
   function getTagFromURL() {
     var params = new URLSearchParams(window.location.search);
     return params.get('tag') || '';
@@ -105,9 +140,10 @@
 
   // ── 이벤트 ──
 
-  // 파일 클릭 → 팝업
+  // 싱글클릭 → 미리보기 / 더블클릭 → 메모장 팝업
+  var clickTimer = null;
+
   document.addEventListener('click', function (e) {
-    // 태그 필터 클릭
     var tagLink = e.target.closest('.tag-filter');
     if (tagLink) {
       var onBlogPage = document.querySelector('.file-row[data-tags]') || document.querySelector('.post-card[data-tags]');
@@ -115,7 +151,7 @@
       e.preventDefault();
       var tag = tagLink.dataset.tag;
       var currentTag = getTagFromURL();
-      var newTag = (currentTag === tag) ? '' : tag; // 토글
+      var newTag = (currentTag === tag) ? '' : tag;
 
       if (newTag) {
         history.replaceState(null, '', '?tag=' + encodeURIComponent(newTag));
@@ -129,25 +165,31 @@
     var item = e.target.closest('[data-slug]');
     if (item) {
       e.preventDefault();
-      openPost(item.dataset.slug);
+      var slug = item.dataset.slug;
+      if (clickTimer) {
+        clearTimeout(clickTimer);
+        clickTimer = null;
+        openPost(slug);
+      } else {
+        clickTimer = setTimeout(function () {
+          clickTimer = null;
+          showPreview(slug);
+        }, 250);
+      }
       return;
     }
   });
 
-  // 오버레이 배경 클릭 → 닫기
   overlay.addEventListener('click', function (e) {
     if (e.target === overlay) closePost();
   });
 
-  // X 버튼 → 닫기
   document.getElementById('notepad-close').addEventListener('click', closePost);
 
-  // ESC → 닫기
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closePost();
   });
 
-  // ── 초기화: URL에 tag 파라미터 있으면 필터 적용 ──
   var initialTag = getTagFromURL();
   if (initialTag) {
     filterByTag(initialTag);

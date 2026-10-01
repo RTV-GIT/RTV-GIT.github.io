@@ -583,6 +583,75 @@ body {
   flex-wrap: wrap;
 }
 
+/* ── Blog Split Layout ── */
+.blog-split {
+  display: flex;
+  gap: 0;
+}
+
+.blog-list {
+  flex: 1;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+}
+
+.blog-preview {
+  width: 340px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.preview-empty {
+  text-align: center;
+}
+
+.preview-empty-text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg-dim);
+}
+
+.preview-content {
+  width: 100%;
+}
+
+.preview-thumb {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--surface-2);
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+}
+
+.preview-title {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg-bright);
+  margin-bottom: 0.75rem;
+}
+
+.preview-excerpt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg);
+  line-height: 1.7;
+}
+
+.file-row-selected {
+  background: rgba(79, 195, 247, 0.08);
+}
+
+.file-row-selected:hover {
+  background: rgba(79, 195, 247, 0.12);
+}
+
 /* ── 파일 리스트 (Blog) ── */
 .file-list-header {
   display: flex;
@@ -1106,6 +1175,14 @@ body {
 
   .notepad-toc {
     display: none !important;
+  }
+
+  .blog-preview {
+    display: none;
+  }
+
+  .blog-list {
+    border-right: none;
   }
 
   .explorer-main {
