@@ -42,9 +42,8 @@
       previewTitle.textContent = post.title;
       previewExcerpt.textContent = firstP ? firstP.textContent.substring(0, 200) : '';
 
-      if (post.body.match(/<img[^>]+src="([^"]+)"/)) {
-        var thumbUrl = post.body.match(/<img[^>]+src="([^"]+)"/)[1];
-        previewThumb.style.backgroundImage = 'url(' + thumbUrl + ')';
+      if (post.thumbnail) {
+        previewThumb.style.backgroundImage = 'url(' + post.thumbnail + ')';
         previewThumb.style.display = '';
       } else {
         previewThumb.style.display = 'none';

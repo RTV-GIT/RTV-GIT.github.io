@@ -596,7 +596,7 @@ body {
 }
 
 .blog-preview {
-  width: 340px;
+  width: 440px;
   flex-shrink: 0;
   overflow-y: auto;
   display: flex;
