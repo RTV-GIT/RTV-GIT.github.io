@@ -141,6 +141,7 @@
 
   // 싱글클릭 → 미리보기 / 더블클릭 → 메모장 팝업
   var clickTimer = null;
+  var isTouchDevice = 'ontouchstart' in window;
 
   document.addEventListener('click', function (e) {
     var tagLink = e.target.closest('.tag-filter');
@@ -165,15 +166,25 @@
     if (item) {
       e.preventDefault();
       var slug = item.dataset.slug;
-      if (clickTimer) {
-        clearTimeout(clickTimer);
-        clickTimer = null;
-        openPost(slug);
-      } else {
-        clickTimer = setTimeout(function () {
-          clickTimer = null;
+
+      if (isTouchDevice) {
+        var alreadySelected = item.classList.contains('file-row-selected');
+        if (alreadySelected) {
+          openPost(slug);
+        } else {
           showPreview(slug);
-        }, 250);
+        }
+      } else {
+        if (clickTimer) {
+          clearTimeout(clickTimer);
+          clickTimer = null;
+          openPost(slug);
+        } else {
+          clickTimer = setTimeout(function () {
+            clickTimer = null;
+            showPreview(slug);
+          }, 250);
+        }
       }
       return;
     }

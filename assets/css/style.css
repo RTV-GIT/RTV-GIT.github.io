@@ -276,7 +276,7 @@ body {
   flex-direction: column;
   gap: 0;
   padding: 0 !important;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .home-hero {
@@ -407,6 +407,7 @@ body {
   font-family: var(--font-mono);
   font-size: 13px;
   padding: 1.5rem;
+  overflow-y: auto;
 }
 
 .terminal-tagline {
@@ -596,7 +597,7 @@ body {
 }
 
 .blog-preview {
-  width: 440px;
+  width: 35%;
   flex-shrink: 0;
   overflow-y: auto;
   display: flex;
@@ -1125,7 +1126,7 @@ body {
 /* ── TOC Panel ── */
 .notepad-toc {
   position: fixed;
-  right: calc(50% + 480px);
+  right: min(calc(50% + 480px), calc(100vw - 220px));
   top: 5vh;
   width: 200px;
   max-height: 80vh;
@@ -1168,7 +1169,20 @@ body {
 /* ════════════════════════════════════════
    반응형
    ════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .blog-preview {
+    width: 280px;
+  }
+
+  .notepad-toc {
+    display: none !important;
+  }
+}
+
 @media (max-width: 700px) {
+  .ascii-banner {
+    display: none;
+  }
   .explorer-sidebar {
     display: none;
   }
