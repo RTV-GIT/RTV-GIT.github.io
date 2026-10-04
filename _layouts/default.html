@@ -18,6 +18,10 @@
       <div class="explorer-titlebar-left">
         <span class="explorer-titlebar-icon">📁</span>
         <span class="explorer-titlebar-text">{{ page.title | default: site.title }}</span>
+        <nav class="mobile-nav">
+          <a href="{{ '/' | relative_url }}" class="mobile-nav-item{% if page.nav == 'home' %} active{% endif %}">Desktop</a>
+          <a href="{{ '/blog' | relative_url }}" class="mobile-nav-item{% if page.nav == 'blog' %} active{% endif %}">Blog</a>
+        </nav>
       </div>
       <div class="explorer-titlebar-buttons">
         <span class="explorer-win-btn">─</span>
