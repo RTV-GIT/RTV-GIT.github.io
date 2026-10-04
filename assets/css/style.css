@@ -1101,6 +1101,7 @@ body {
   color: var(--fg-bright);
   text-decoration: underline;
   text-decoration-color: var(--fg-dim);
+  word-break: break-all;
 }
 
 .notepad-body .body a:hover {
