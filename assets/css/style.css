@@ -1070,7 +1070,8 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
+  display: block;
 }
 
 .notepad-body .body h2 {
